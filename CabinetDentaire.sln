@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{90A9FC03-23AD-4080-8851-868A176FEC28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{90A9FC03-23AD-4080-8851-868A176FEC28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess.Tests", "DataAccess.Tests\DataAccess.Tests.csproj", "{DC655FCE-050A-4476-9671-248F7B58425B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{90A9FC03-23AD-4080-8851-868A176FEC28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90A9FC03-23AD-4080-8851-868A176FEC28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90A9FC03-23AD-4080-8851-868A176FEC28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC655FCE-050A-4476-9671-248F7B58425B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC655FCE-050A-4476-9671-248F7B58425B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC655FCE-050A-4476-9671-248F7B58425B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC655FCE-050A-4476-9671-248F7B58425B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
