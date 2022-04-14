@@ -49,20 +49,6 @@ namespace DataAccess.Tests.Readers.Clients
             //Assert
             Assert.Null(result);
         }
-        [Fact]
-        public async Task<IEnumerable<Client>> ReturnClients()
-        {
-            //Arrange
-            var sut = _fixture.CreateMany<Client>();
-            foreach (var client in sut)
-            {
-                await _clientWriter.AddClient(client);
-            }
-            //Act
-            var result = await _clientReader.GetAllClients();
-            //Assert
-            Assert.Equal(sut.Count(), result.Count());
-            return result;
-        }
+       
     }
 }
