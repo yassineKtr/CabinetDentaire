@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoFixture;
+﻿using AutoFixture;
 using DataAccess.Models;
 using DataAccess.Readers.Clients;
 using DataAccess.Writers.Clients;
 using Microsoft.Extensions.Configuration;
+using System.IO;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace DataAccess.Tests.Readers.Clients
