@@ -9,5 +9,6 @@
         public DateTime Date_rdv { get; set; }
         public bool Annule { get; set; }
         public string Reason { get; set; }
+        public bool paye { get; set; }
     }
 }
