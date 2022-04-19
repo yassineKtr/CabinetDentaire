@@ -20,15 +20,16 @@ namespace DataAccess.Writers.Dentistes
         {
             await using var connection = _connection.GetSqlConnection();
             await connection.OpenAsync();
-            var query = "INSERT INTO dentiste (dentiste_id, nom, prenom, debut_travail, fin_travail)" +
-                        " VALUES (@id, @nom, @prenom, @debut_travail, @fin_travail)";
+            var query = "INSERT INTO dentiste (dentiste_id, nom, prenom, debut_travail, fin_travail, max_clients)" +
+                        " VALUES (@id, @nom, @prenom, @debut_travail, @fin_travail, @max_clients)";
             var parameters = new
             {
                 id = dentiste.Dentiste_id,
                 nom = dentiste.Nom,
                 prenom = dentiste.Prenom,
                 debut_travail = dentiste.Debut_travail,
-                fin_travail = dentiste.Fin_travail
+                fin_travail = dentiste.Fin_travail,
+                max_clients = dentiste.MaxClients
             };
             await connection.ExecuteAsync(query, parameters);
         }
@@ -36,7 +37,7 @@ namespace DataAccess.Writers.Dentistes
         public async Task UpdateDentiste(Dentiste dentiste)
         {
             var query = "UPDATE dentiste " +
-                        "SET nom = @nom, prenom = @prenom, debut_travail = @debut_travail, fin_travail = @fin_travail" +
+                        "SET nom = @nom, prenom = @prenom, debut_travail = @debut_travail, fin_travail = @fin_travail, max_clients = @max_clients" +
                         " WHERE dentiste_id = @id";
             var parameters = new
             {
@@ -44,7 +45,8 @@ namespace DataAccess.Writers.Dentistes
                 nom = dentiste.Nom,
                 prenom = dentiste.Prenom,
                 debut_travail = dentiste.Debut_travail,
-                fin_travail = dentiste.Fin_travail
+                fin_travail = dentiste.Fin_travail,
+                max_clients = dentiste.MaxClients
             };
             await using var connection = _connection.GetSqlConnection();
             await connection.OpenAsync();

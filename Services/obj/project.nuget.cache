@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "FN/3ROS5iKx0WOPmthKMlJfonxhAhjmgoTQdUcdHuK2QUI5Re4ZlL4pv8MeuTs3vFrYTsen6NJOBHfM09M9E6w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\hp\\Desktop\\CabinetDentaire\\Services\\Services.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hp\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\npgsql\\6.0.3\\npgsql.6.0.3.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
