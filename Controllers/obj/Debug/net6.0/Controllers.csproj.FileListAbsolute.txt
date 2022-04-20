@@ -29,3 +29,5 @@ C:\Users\hp\Desktop\CabinetDentaire\Controllers\obj\Debug\net6.0\refint\Controll
 C:\Users\hp\Desktop\CabinetDentaire\Controllers\obj\Debug\net6.0\Controllers.pdb
 C:\Users\hp\Desktop\CabinetDentaire\Controllers\obj\Debug\net6.0\Controllers.genruntimeconfig.cache
 C:\Users\hp\Desktop\CabinetDentaire\Controllers\obj\Debug\net6.0\ref\Controllers.dll
+C:\Users\hp\Desktop\CabinetDentaire\Controllers\bin\Debug\net6.0\Services.dll
+C:\Users\hp\Desktop\CabinetDentaire\Controllers\bin\Debug\net6.0\Services.pdb

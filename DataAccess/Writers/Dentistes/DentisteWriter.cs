@@ -29,7 +29,7 @@ namespace DataAccess.Writers.Dentistes
                 prenom = dentiste.Prenom,
                 debut_travail = dentiste.Debut_travail,
                 fin_travail = dentiste.Fin_travail,
-                max_clients = dentiste.MaxClients
+                max_clients = dentiste.Max_clients
             };
             await connection.ExecuteAsync(query, parameters);
         }
@@ -46,7 +46,7 @@ namespace DataAccess.Writers.Dentistes
                 prenom = dentiste.Prenom,
                 debut_travail = dentiste.Debut_travail,
                 fin_travail = dentiste.Fin_travail,
-                max_clients = dentiste.MaxClients
+                max_clients = dentiste.Max_clients
             };
             await using var connection = _connection.GetSqlConnection();
             await connection.OpenAsync();

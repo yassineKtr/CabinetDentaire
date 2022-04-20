@@ -28,7 +28,7 @@ namespace DataAccess.Readers.Dentists
             var sql = "SELECT * FROM dentiste WHERE dentiste_id = @id";
             await using var connection = _connection.GetSqlConnection();
             await connection.OpenAsync();
-            return await connection.QueryFirstOrDefaultAsync<Dentiste>(sql, new { id });
+            return await connection.QueryFirstOrDefaultAsync<Dentiste?>(sql, new { id });
         }
 
         public async Task<Dentiste?> GetDentisteByName(string name)
@@ -36,7 +36,8 @@ namespace DataAccess.Readers.Dentists
             var sql = "SELECT * FROM dentiste WHERE nom=@name";
             await using var connection = _connection.GetSqlConnection();
             await connection.OpenAsync();
-            return await connection.QueryFirstOrDefaultAsync<Dentiste>(sql, new {name});
+            var dentiste = await connection.QueryFirstOrDefaultAsync<Dentiste>(sql, new { name });
+            return dentiste;
         }
     }
 }
