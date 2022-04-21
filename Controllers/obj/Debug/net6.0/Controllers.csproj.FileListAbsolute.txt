@@ -31,3 +31,4 @@ C:\Users\hp\Desktop\CabinetDentaire\Controllers\obj\Debug\net6.0\Controllers.gen
 C:\Users\hp\Desktop\CabinetDentaire\Controllers\obj\Debug\net6.0\ref\Controllers.dll
 C:\Users\hp\Desktop\CabinetDentaire\Controllers\bin\Debug\net6.0\Services.dll
 C:\Users\hp\Desktop\CabinetDentaire\Controllers\bin\Debug\net6.0\Services.pdb
+C:\Users\hp\Desktop\CabinetDentaire\Controllers\bin\Debug\net6.0\Newtonsoft.Json.dll

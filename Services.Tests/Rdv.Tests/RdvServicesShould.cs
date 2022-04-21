@@ -33,7 +33,8 @@ namespace Services.Tests.Rdv.Tests
 
         public RdvServicesShould()
         {
-            _configuration = TestHelper.GetIConfigurationRoot(Directory.GetCurrentDirectory().Substring(0, Directory.GetCurrentDirectory().Length - 17));
+            _configuration = TestHelper.GetIConfigurationRoot(Directory.GetCurrentDirectory()
+                .Substring(0, Directory.GetCurrentDirectory().Length - 17));
             _renderVousWriter = new RendezVousWriter(_configuration);
             _dentisteWriter = new DentisteWriter(_configuration);
             _renderVousReader = new RendezVousReader(_configuration);
@@ -57,18 +58,18 @@ namespace Services.Tests.Rdv.Tests
             var date = _fixture.Create<DateTime>();
             var rdv = _fixture.Build<RendezVous>()
                 .With(x => x.Consultation_id, consultation.Consultation_id)
-                .With(x=>x.Client_id,client.Client_id)
-                .With(x=>x.Dentiste_id,dentiste.Dentiste_id)
+                .With(x => x.Client_id, client.Client_id)
+                .With(x => x.Dentiste_id, dentiste.Dentiste_id)
                 .Create();
             await _dentisteWriter.AddDentiste(dentiste);
             await _clientWriter.AddClient(client);
             await _consultationWriter.AddConsultation(consultation);
             await _renderVousWriter.AddRendezVous(rdv);
             //Act 
-            var result = await _rdvServices.CreateRdv(dentiste.Nom, client.Client_id, consultation.Consultation_type, date);
+            await _rdvServices.CreateRdv(dentiste.Nom, client.Client_id, consultation.Consultation_type, date);
+            var result = await _renderVousReader.GetRendezVousByDentisteId(dentiste.Dentiste_id);
             //Assert
-            Assert.Equal("Rdv created", result.Item1);
-            Assert.NotNull(result.Item2);
+            Assert.NotNull(result);
         }
 
         [Fact]
@@ -91,10 +92,9 @@ namespace Services.Tests.Rdv.Tests
             await _consultationWriter.AddConsultation(consultation);
             await _renderVousWriter.AddRendezVous(rdv);
             //Act 
-            var result = await _rdvServices.CreateRdv(dentiste.Nom, client.Client_id, consultation.Consultation_type, date);
+            
             //Assert
-            Assert.Equal("Dentiste full", result.Item1);
-            Assert.Null(result.Item2);
+            await Assert.ThrowsAsync<Exception>(async () => await _rdvServices.CreateRdv(dentiste.Nom, client.Client_id, consultation.Consultation_type, date));
         }
 
         [Fact]
@@ -111,20 +111,21 @@ namespace Services.Tests.Rdv.Tests
                 .With(x => x.Consultation_id, consultation.Consultation_id)
                 .With(x => x.Client_id, client.Client_id)
                 .With(x => x.Dentiste_id, dentiste.Dentiste_id)
-                .With(x=>x.Annule,false)
+                .With(x => x.Annule, false)
                 .Create();
             //Act
             await _renderVousWriter.AddRendezVous(rdv);
             var reason = _fixture.Create<string>();
-            var result = await _rdvServices.CancelRdv(rdv.Rdv_id, reason);
+            await _rdvServices.CancelRdv(rdv.Rdv_id, reason);
             //Assert
             var rdvToBeTested = await _renderVousReader.GetRendezVousById(rdv.Rdv_id);
             var annule = rdvToBeTested.Annule;
             var annuleReason = rdvToBeTested.Reason;
-            Assert.Equal("Rendez_vous canceled",result);
+            Assert.NotNull(rdvToBeTested);
             Assert.True(annule);
-            Assert.Equal(reason,annuleReason);
+            Assert.Equal(reason, annuleReason);
         }
+
         [Fact]
         public async Task ReturnErrorIfRdvDoesNotExist()
         {
@@ -144,9 +145,8 @@ namespace Services.Tests.Rdv.Tests
             //Act
             await _renderVousWriter.AddRendezVous(rdv);
             var reason = _fixture.Create<string>();
-            var result = await _rdvServices.CancelRdv(Guid.NewGuid(), reason);
             //Assert
-            Assert.Equal("Rendez_vous not found", result);
+            await Assert.ThrowsAsync<Exception>(() => _rdvServices.CancelRdv(Guid.NewGuid(), reason));
         }
 
         [Fact]
@@ -167,11 +167,11 @@ namespace Services.Tests.Rdv.Tests
                 .Create();
             //Act
             await _renderVousWriter.AddRendezVous(rdv);
-            var result = await _rdvServices.PayForRdv(rdv.Rdv_id);
+            await _rdvServices.PayForRdv(rdv.Rdv_id);
             //Assert
             var rdvToBeTested = await _renderVousReader.GetRendezVousById(rdv.Rdv_id);
             Assert.True(rdvToBeTested.Paye);
-            Assert.Equal("Rendez_vous payed", result);
+            Assert.NotNull(rdvToBeTested);
         }
 
         [Fact]
@@ -192,9 +192,8 @@ namespace Services.Tests.Rdv.Tests
                 .Create();
             //Act
             await _renderVousWriter.AddRendezVous(rdv);
-            var result = await _rdvServices.PayForRdv(Guid.NewGuid());
             //Assert
-            Assert.Equal("Rendez_vous not found", result);
+            await Assert.ThrowsAsync<Exception>(() => _rdvServices.PayForRdv(Guid.NewGuid()));
         }
     }
 }
