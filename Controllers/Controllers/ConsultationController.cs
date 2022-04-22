@@ -1,7 +1,6 @@
 ﻿using DataAccess.Models;
 using DataAccess.Readers.Consultations;
 using DataAccess.Writers.Consultations;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Controllers.Controllers

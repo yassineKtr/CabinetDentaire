@@ -1,4 +1,3 @@
-
 using DataAccess.Readers.Clients;
 using DataAccess.Readers.Consultations;
 using DataAccess.Readers.Dentists;
