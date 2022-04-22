@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "fOJ6tYUw0WWongQKpDEEEqRaNkhz0KaG28STFjKoIyGWB8wfOTi0M+D1AX6H8IM1XPXoOQnjgixmdpp/0m7mqg==",
+  "dgSpecHash": "F4QGLdf6c/wOGXUfQK7cdsFUMFwrPshzp5udtta9Mm3hi4nu9sXevASk4FL7z9nfebhzENNwGYPqXHchyqHsbA==",
   "success": true,
   "projectFilePath": "C:\\Users\\hp\\Desktop\\CabinetDentaire\\DataAccess\\DataAccess.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\hp\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\npgsql\\6.0.3\\npgsql.6.0.3.nupkg.sha512",
